@@ -8,13 +8,13 @@ run: main.go version.go
 	go run $^
 
 build:
-	rm -f ./syncsvr_v*
+	rm -f ./msgcenter_v*
 	echo "package main" > version.go
 	echo "const VERSION string = \"${VERSION}\"" >> version.go
 	go build -o ${APP_NAME}_${VERSION}_${DATE}
 
 build-realse:
-	rm -f ./syncsvr_v*
+	rm -f ./msgcenter_*
 	echo "package main" > version.go
 	echo "const VERSION string = \"${VERSION}\"" >> version.go
 	go build -ldflags "-s -w" -o ${APP_NAME}_${VERSION}_${DATE}

@@ -1,2 +1,2 @@
 package main
-const VERSION string = ""
+const VERSION string = "v0.1.0"
