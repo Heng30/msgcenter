@@ -12,7 +12,7 @@
 - `msgcenter -del=<token>` 删除`访问token`
 - `msgcenter -upd=<old_token,new_token>` 更新`访问token`
 
-### websocket 客户端
+### websocket 客户端, 在浏览器终端中运行下面的代码
 ```js
 const socket = new WebSocket('ws://localhost:8001/?token="testToken"&&topic=hello');
 socket.addEventListener('open', event => {
@@ -26,7 +26,8 @@ socket.addEventListener('message', event => {
 ```
 
 ### 发送消息
-`curl -X POST -v -H "Auth-Token: testToken" -d '{"msg": "hello topic"}' "http://localhost:8001/topic/hello"`
+- `curl -X POST -v -H "Auth-Token: testToken" -d '{"msg": "hello topic"}' "http://localhost:8001/topic/hello"`
+- 订阅了`hello`主题的websocket就会接收到`{"msg": "hello topic"}`消息
 
 
 ### 启用https
