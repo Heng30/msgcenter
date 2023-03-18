@@ -32,7 +32,7 @@ func ws(r gin.IRouter) {
 			return
 		}
 
-        log.Printf("%s connect...", conn.RemoteAddr())
+		log.Printf("%s connect...", conn.RemoteAddr())
 		tlock.Lock()
 		if conns, ok := topicMap[topic]; ok {
 			topicMap[topic] = append(conns, conn)
@@ -48,7 +48,6 @@ func ws(r gin.IRouter) {
 				removeConn(topic, conn)
 				return
 			}
-			Broadcast(topic, "hello")
 		}
 	})
 }
@@ -66,7 +65,7 @@ func removeConn(topic string, conn *websocket.Conn) {
 	}
 }
 
-func Broadcast(topic, msg string) {
+func broadcast(topic, msg string) {
 	if topic == "" || msg == "" {
 		return
 	}

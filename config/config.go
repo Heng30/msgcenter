@@ -16,7 +16,7 @@ const DB_BAME string = "msgcenter.db"
 
 var ConfPath, DBPath, CertFile, KeyFile string
 
-var AppConf Config = Config{ListenAddr: ":8001", TestMode: true, EnableTLS: false}
+var AppConf Config = Config{ListenAddr: ":8001", TestMode: false, EnableTLS: false}
 
 func Init() {
 	home, e := os.LookupEnv("HOME")

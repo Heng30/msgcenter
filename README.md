@@ -10,7 +10,24 @@
 - `msgcenter -query=true` 获取`访问token`
 - `msgcenter -add=<token>` 添加`访问token`
 - `msgcenter -del=<token>` 删除`访问token`
-- `msgcenter -upd=<token>` 更新`访问token`
+- `msgcenter -upd=<old_token,new_token>` 更新`访问token`
+
+### websocket 客户端
+```js
+const socket = new WebSocket('ws://localhost:8001/?token="testToken"&&topic=hello');
+socket.addEventListener('open', event => {
+    console.log('Connected to server');
+    socket.send('Hello, server!');
+});
+socket.addEventListener('message', event => {
+    console.log(`Received message: ${event.data}`);
+    socket.close();
+});
+```
+
+### 发送消息
+`curl -X POST -v -H "Auth-Token: testToken" -d '{"msg": "hello topic"}' "http://localhost:8001/topic/hello"`
+
 
 ### 启用https
 - 修改配置文件`EnableTLS: true`

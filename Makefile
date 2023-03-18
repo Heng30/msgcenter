@@ -41,3 +41,11 @@ ping:
 
 ping-tls:
 	curl -v -H "Auth-Token: testToken" "https://localhost:8001/ping"
+
+topic:
+	curl -X POST -v -H "Auth-Token: testToken" -d '{"msg": "hello topic"}' "http://localhost:8001/topic/hello"
+
+
+topic-tls:
+	curl -X POST -v -H "Auth-Token: testToken" -d '{"msg": "hello topic"}' "https://localhost:8001/topic/hello"
+

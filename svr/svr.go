@@ -21,7 +21,7 @@ func Start() {
 		r.Use(cb)
 	}
 
-	rcbs := []routerCb{ping, ws}
+	rcbs := []routerCb{ping, ws, topic}
 	for _, cb := range rcbs {
 		cb(r)
 	}
