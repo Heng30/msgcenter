@@ -1,4 +1,4 @@
-module syncsvr
+module msgcenter
 
 go 1.19
 

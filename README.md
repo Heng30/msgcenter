@@ -14,7 +14,7 @@
 
 ### websocket 客户端, 在浏览器终端中运行下面的代码
 ```js
-const socket = new WebSocket('ws://localhost:8001/?token="testToken"&&topic=hello');
+const socket = new WebSocket('ws://localhost:8001/?token=testToken&&topic=hello');
 socket.addEventListener('open', event => {
     console.log('Connected to server');
     socket.send('Hello, server!');
